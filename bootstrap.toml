@@ -1,0 +1,18 @@
+profile = "dist"
+change-id = 99999999
+
+[build]
+target = ["riscv32imac-unknown-linux-gnu"]
+
+[rust]
+channel = "stable"
+description = "Rust for NTL Hive-S SoC"
+
+[llvm]
+download-ci-llvm = true
+
+[target.riscv32imac-unknown-linux-gnu]
+cc = "clang"
+cxx = "clang++"
+linker = "clang"
+ar = "llvm-ar"
