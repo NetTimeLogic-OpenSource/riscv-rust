@@ -6,7 +6,6 @@ target = ["riscv32imac-unknown-linux-gnu"]
 
 [rust]
 channel = "stable"
-description = "Rust for NTL Hive-S SoC"
 
 [llvm]
 download-ci-llvm = true
