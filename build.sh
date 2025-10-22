@@ -16,7 +16,7 @@ cp bootstrap.toml $RUST_SRC/bootstrap.toml
 pushd $RUST_SRC
 
 ./x build -i --stage 1 compiler/rustc library/std
-./x dist -i --stage 1
+./x dist
 
 popd
 
