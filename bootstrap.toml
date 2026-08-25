@@ -1,8 +1,10 @@
 profile = "dist"
 change-id = 99999999
 
-[build]
-target = ["riscv32imac-unknown-linux-gnu"]
+# Targets are passed on the x dist command line (host + riscv32imac)
+
+[dist]
+compression-formats = ["gz"]
 
 [rust]
 channel = "stable"

@@ -15,21 +15,17 @@ cp bootstrap.toml $RUST_SRC/bootstrap.toml
 
 pushd $RUST_SRC
 
-./x build -i --stage 1 compiler/rustc library/std
-./x dist
+# Only rustc and std are needed; skips docs, cargo and the other tools
+./x dist rustc rust-std --target $(uname -m)-unknown-linux-gnu,riscv32imac-unknown-linux-gnu
 
 popd
 
-cp $RUST_SRC/build/dist/rust-$RUST_VERSION-$(uname -m)-unknown-linux-gnu.tar.gz dist/
-cp $RUST_SRC/build/dist/rust-$RUST_VERSION-$(uname -m)-unknown-linux-gnu.tar.xz dist/
-
+cp $RUST_SRC/build/dist/rustc-$RUST_VERSION-$(uname -m)-unknown-linux-gnu.tar.gz dist/
+cp $RUST_SRC/build/dist/rust-std-$RUST_VERSION-$(uname -m)-unknown-linux-gnu.tar.gz dist/
 cp $RUST_SRC/build/dist/rust-std-$RUST_VERSION-riscv32imac-unknown-linux-gnu.tar.gz dist/
-cp $RUST_SRC/build/dist/rust-std-$RUST_VERSION-riscv32imac-unknown-linux-gnu.tar.xz dist/
 
 echo "Rust toolchain built successfully."
 
 # Cleanup
 rm -rf $RUST_SRC
 echo "Temporary files cleaned up."
-# End of script
-# EOF
