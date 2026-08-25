@@ -28,6 +28,7 @@ RUN chmod +x build.sh \
 RUN cd dist \
     && for component in \
         rustc-${RUST_VERSION}-$(uname -m)-unknown-linux-gnu \
+        cargo-${RUST_VERSION}-$(uname -m)-unknown-linux-gnu \
         rust-std-${RUST_VERSION}-$(uname -m)-unknown-linux-gnu \
         rust-std-${RUST_VERSION}-riscv32imac-unknown-linux-gnu; \
     do \

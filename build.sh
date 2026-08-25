@@ -15,12 +15,13 @@ cp bootstrap.toml $RUST_SRC/bootstrap.toml
 
 pushd $RUST_SRC
 
-# Only rustc and std are needed; skips docs, cargo and the other tools
-./x dist rustc rust-std --target $(uname -m)-unknown-linux-gnu,riscv32imac-unknown-linux-gnu
+# Only rustc, cargo and std are needed; skips docs and the other tools
+./x dist rustc cargo rust-std --target $(uname -m)-unknown-linux-gnu,riscv32imac-unknown-linux-gnu
 
 popd
 
 cp $RUST_SRC/build/dist/rustc-$RUST_VERSION-$(uname -m)-unknown-linux-gnu.tar.gz dist/
+cp $RUST_SRC/build/dist/cargo-$RUST_VERSION-$(uname -m)-unknown-linux-gnu.tar.gz dist/
 cp $RUST_SRC/build/dist/rust-std-$RUST_VERSION-$(uname -m)-unknown-linux-gnu.tar.gz dist/
 cp $RUST_SRC/build/dist/rust-std-$RUST_VERSION-riscv32imac-unknown-linux-gnu.tar.gz dist/
 
