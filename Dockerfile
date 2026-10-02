@@ -1,4 +1,4 @@
-ARG RUST_VERSION=1.98.1
+ARG RUST_VERSION=1.99.0
 
 FROM ghcr.io/nettimelogic-opensource/riscv-toolchain:main AS builder
 
